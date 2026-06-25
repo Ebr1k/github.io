@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Установка закладки</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            text-align: center;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        h1 { color: #333; margin-bottom: 10px; }
+        .subtitle { color: #666; margin-bottom: 30px; }
+        .bookmark-btn {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: grab;
+            border: 2px solid #388E3C;
+            transition: all 0.3s;
+            margin: 10px 0;
+        }
+        .bookmark-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+        .steps {
+            text-align: left;
+            background: #f9f9f9;
+            padding: 20px 30px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        .steps li {
+            margin: 12px 0;
+            color: #333;
+        }
+        .step-icon {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .code {
+            background: #2d2d2d;
+            color: #f8f8f8;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            word-break: break-all;
+            margin: 10px 0;
+        }
+        .note {
+            font-size: 14px;
+            color: #888;
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .badge {
+            display: inline-block;
+            background: #ff9800;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📌 Установка закладки</h1>
+        <p class="subtitle">Закладка для автоматического открытия заявления из 1С</p>
+
+        <div style="margin: 20px 0;">
+            <span class="badge">Перетащите кнопку</span>
+        </div>
+
+        <!-- ЭТУ КНОПКУ НУЖНО ПЕРЕТАЩИТЬ В ЗАКЛАДКИ -->
+        <a href="javascript:(function(){const id=new URLSearchParams(location.search).get('applicationId');if(!id)return alert('❌ В ссылке нет параметра applicationId');setTimeout(()=>{const btn=Array.from(document.querySelectorAll('.cursor-pointer.w-full')).find(b=>b.textContent.includes(id));btn?btn.click():alert('❌ Заявление '+id+' не найдено');},800);})();" 
+           class="bookmark-btn" 
+           draggable="true">
+            🚀 Открыть заявление
+        </a>
+
+        <div class="steps">
+            <h3 style="margin-top:0;">Как установить:</h3>
+            <ol>
+                <li>
+                    <span class="step-icon">1</span>
+                    Нажмите и удерживайте кнопку <strong>"Открыть заявление"</strong>
+                </li>
+                <li>
+                    <span class="step-icon">2</span>
+                    Перетащите её в <strong>панель закладок</strong> браузера (сверху)
+                </li>
+                <li>
+                    <span class="step-icon">3</span>
+                    Отпустите — закладка создана! ✅
+                </li>
+            </ol>
+        </div>
+
+        <div style="background:#e3f2fd;padding:15px;border-radius:8px;text-align:left;">
+            <p style="margin:0;color:#1565C0;font-weight:bold;">🔗 Как использовать:</p>
+            <ol style="color:#0d47a1;margin:10px 0 0 20px;padding-left:0;">
+                <li>Перейдите по ссылке из 1С на страницу профиля</li>
+                <li>Нажмите на созданную закладку "Открыть заявление"</li>
+                <li>Заявление раскроется автоматически!</li>
+            </ol>
+        </div>
+
+        <div class="note">
+            <strong>ℹ️ Важно:</strong> Если кнопка не перетаскивается, нажмите <kbd>Ctrl+D</kbd> и добавьте закладку вручную, скопировав код снизу.
+            <div class="code" style="margin-top:10px;font-size:11px;">javascript:(function(){const id=new URLSearchParams(location.search).get('applicationId');if(!id)return alert('❌ В ссылке нет параметра applicationId');setTimeout(()=>{const btn=Array.from(document.querySelectorAll('.cursor-pointer.w-full')).find(b=>b.textContent.includes(id));btn?btn.click():alert('❌ Заявление '+id+' не найдено');},800);})();</div>
+        </div>
+    </div>
+</body>
+</html>
